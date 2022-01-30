@@ -30,18 +30,18 @@ cc2.deposita(1000)
 # O que o Python faz é tão somente colocar na lista tão somente o endereço de memória onde aquele objeto está
 # armazenado.
 #
-contasCorrentes = [cc1, cc2]
-for cc in contasCorrentes:
+contas_correntes = [cc1, cc2]
+for cc in contas_correntes:
     print(cc)
 
 print('Antes do depósito')
-for cc in contasCorrentes:
+for cc in contas_correntes:
     print(cc)
 
-ContaCorrente.deposita_para_todas_contas(contasCorrentes, 100)
+ContaCorrente.deposita_para_todas_contas(contas_correntes, 100)
 
 print('Após o depósito')
-for cc in contasCorrentes:
+for cc in contas_correntes:
     print(cc)
 
 #
@@ -52,7 +52,7 @@ for cc in contasCorrentes:
 # do tipo ContaCorrente; agora ela contém também um int. Se a lista contasCorrentes for passada
 # como parâmetro a um método que espera que todos os elementos da lista sejam do tipo ContaCorrente
 # algum erro pode acontecer. É exatamente esse o caso da linha abaixo:
-ContaCorrente.deposita_para_todas_contas(contasCorrentes, 100)
+ContaCorrente.deposita_para_todas_contas(contas_correntes, 100)
 
 # A execução da linha acima resultará em um erro do tipo
 # AttributeError: 'int' object has no attribute 'deposita'
@@ -78,3 +78,21 @@ usuario2 = ('Osmar Telo', 32, 1982)
 # Tuplas são imutáveis.
 #
 
+# Criando uma lista cujos elementos são tuplas:
+usuarios = [usuario1, usuario2]
+print(usuarios)
+
+# Com essa estrutura é possível adicionar um novo usuário à lista conquanto o objeto passado no
+# método append seja uma tupla representando um usuário:
+usuarios.append(('Djalma Penada', 12, 2010))
+print(usuarios)
+
+# Criando uma tupla de objetos
+contas_correntes = (cc1, cc2)
+for conta_corrente in contas_correntes:
+    # Conquanto o objeto contas_correntes seja uma tupla e, consequentemente não possa ser alterado,
+    # cada elemento da tupla é uma instância de Contacorrente e essa instância pode ser alterada.
+    # Portanto, o código abaixo é válido.
+    print(f'Conta antes da atualização do saldo {conta_corrente}')
+    conta_corrente.deposita(150)
+    print(f'Conta após a atualização do saldo {conta_corrente}')
