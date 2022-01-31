@@ -70,4 +70,4 @@ for conta in contas:
 # não implementa o método abstrato passa_o_mes definido na classe Conta:
 # TypeError: Can't instantiate abstract class ContaInvestimento with abstract method passa_o_mes
 #
-ci = ContaInvestimento(18)
+# ci = ContaInvestimento(18) # Está comentado pois esse código não funciona.
