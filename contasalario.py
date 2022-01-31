@@ -10,6 +10,13 @@ class ContaSalario:
     def __str__(self):
         return "[>>> Conta {} Saldo {} <<<]".format(self._codigo, self._saldo)
 
+    #
+    # O método __lt__ (less than) permite que duas instâncias de uma mesma classe possam ser
+    # comparadas através do operador <
+    #
+    def __lt__(self, other):
+        return self._saldo < other._saldo
+
     def __eq__(self, other):
         #
         # Outra forma de testar o tipo de um objeto é através do operador isinstance. Esse operador retorna true
@@ -19,6 +26,9 @@ class ContaSalario:
         if(type(other) != ContaSalario):
             return False
         return self._codigo == other._codigo
+
+    def extrai_saldo(self):
+        return self._saldo
 
 cs = ContaSalario(23)
 cs.deposita(200)
